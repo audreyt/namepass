@@ -51,14 +51,18 @@ GEN: while (1) {
 body { font-family: "Microsoft JhengHei", "Apple LiGothic", "Droid Sans Fallback", sans-serif }
 h1 { font-size: 24pt }
 td { font-size: 20pt }
-span.title {
+.title {
     background: #ffd893;
     padding: 10px;
     border-radius: 10px;
+    color: #116 !important;
+}
+.title:hover {
+    color: #c3c !important;
 }
 </style>
 </head><body><center>
-<h1 style="padding-top: 100px; padding-bottom: 50px"><span class="title">密碼歐陽盆栽</span></h1>
+<h1 style="padding-top: 100px; padding-bottom: 50px"><a href="/" class="title" title="產生一組新的人名密碼">密碼歐陽盆栽</a></h1>
 <table><tr>
 <td>姓名</td><td>$name</td>
 </tr><tr><td>嘸蝦米</td><td><tt>$code{boshiamy}</tt></td>
