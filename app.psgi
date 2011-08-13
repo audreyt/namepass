@@ -46,6 +46,8 @@ GEN: while (1) {
     my $body = Encode::encode_utf8(<<".");
 <!doctype html>
 <html><head>
+<meta charset="UTF-8">
+<title>密碼歐陽盆栽</title>
 <link href="http://www.perlbrew.pl/stylesheets/application.css" media="screen, projection" rel="stylesheet" type="text/css">
 <style>
 body { font-family: "Microsoft JhengHei", "Apple LiGothic", "Droid Sans Fallback", sans-serif }
@@ -74,11 +76,16 @@ td { font-size: 20pt }
 <footer>
     <p>源碼在 <a href="https://github.com/audreyt/namepass/">GitHub</a> 上，以 <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.zh_TW">CC0 無著作權方式</a> 釋出。
     </p><p>
-    感謝 <nobr>perlbrew.pl 的 <a href="http://www.perlbrew.pl/stylesheets/application.css">樣式表</a></nobr>，
-         <nobr>richyli.com 的 <a href="http://www.richyli.com/name/">人名表</a></nobr>，
+    感謝 <nobr>perlbrew.pl 的 <a href="http://www.perlbrew.pl/stylesheets/application.css">樣式表</a></nobr>、
+         <nobr>richyli.com 的 <a href="http://www.richyli.com/name/">人名表</a></nobr>、
          <br>
          <nobr>openvanilla.org 的 <a href="http://openvanilla.googlecode.com/svn/trunk/Modules/SharedData/">字碼表</a></nobr>，以及
-         <nobr>edu.tw 的 <a href="http://www.edu.tw/mandr/download.aspx?download_sn=306&pages=2&site_content_sn=3364">常用字表</a>。</nobr>:-)</p>
+         <nobr>
+         edu.tw 的 <a href="http://www.edu.tw/mandr/download.aspx?download_sn=306&pages=2&site_content_sn=3364">常用字表</a>。</nobr></p>
+         <p>
+         （依 <a href="http://xkcd.com/936/">xkcd</a> 的方式計算，
+         此網頁產生的密碼強度約為 <a href="https://plus.google.com/108097168863179836693/posts/YarSfwZnfjH">25½ 位元</a>。）
+         </p>
 </footer>
 .
     return [200, ['Content-Type' => 'text/html; charset=utf-8', 'Content-Length' => length $body], [$body]]
