@@ -35,11 +35,13 @@ sub getNextName {
 }
 
 sub {
-
-    my $name = getNextFamily() . getNextName();
-    my %code;
-    for my $im (@IM) {
-        $code{$im} = join(' ', map { $Maps{$im}{$_} } split(//, $name));
+    my ($name, %code);
+GEN: while (1) {
+        $name = getNextFamily() . getNextName();
+        for my $im (@IM) {
+            $code{$im} = join(' ', map { $Maps{$im}{$_} // next GEN } split(//, $name));
+        }
+        last;
     }
     my $body = Encode::encode_utf8(<<".");
 <!doctype html>
@@ -64,6 +66,11 @@ span.title {
 </tr><tr><td>快倉七</td><td><tt>$code{scj7}</tt></td>
 </tr><tr><td>行列26</td><td><tt>$code{array26}</tt></td>
 </tr></table></body></html>
+
+<footer>
+    <p>源碼在 <a href="https://github.com/audreyt/namepass/">GitHub</a> 上，以 <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.zh_TW">CC0 無著作權方式</a> 釋出。
+    <br>感謝 perlbrew.pl 的樣式表，richyli.com 的人名表，openvanilla.org 的字碼表，以及 edu.tw 的常用字表。:-)</p>
+</footer>
 .
     return [200, ['Content-Type' => 'text/html; charset=utf-8', 'Content-Length' => length $body], [$body]]
 }
