@@ -84,7 +84,7 @@ td { font-size: 20pt }
          edu.tw 的 <a href="http://www.edu.tw/mandr/download.aspx?download_sn=306&pages=2&site_content_sn=3364">常用字表</a>。</nobr></p>
          <p>
          （依 <a href="http://xkcd.com/936/">xkcd</a> 的方式計算，
-         此網頁產生的密碼強度約為 <a href="https://plus.google.com/108097168863179836693/posts/YarSfwZnfjH">25½ 位元</a>。）
+         此網頁產生的密碼強度約為 <a href="https://plus.google.com/108097168863179836693/posts/YarSfwZnfjH">35½ 位元</a>。）
          </p>
 </footer>
 .
