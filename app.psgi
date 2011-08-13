@@ -23,7 +23,7 @@ sub getNextName {
 
     my $res = Furl->new->post(
         'http://www.richyli.com/name/index.asp', [],
-        [name_count => 100, yourname => ' ', break => 3]
+        [name_count => 500, yourname => ' ', break => 3]
     );
 
     my $content = Encode::decode(big5 => $res->content);
@@ -69,7 +69,12 @@ span.title {
 
 <footer>
     <p>源碼在 <a href="https://github.com/audreyt/namepass/">GitHub</a> 上，以 <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.zh_TW">CC0 無著作權方式</a> 釋出。
-    <br>感謝 perlbrew.pl 的樣式表，richyli.com 的人名表，openvanilla.org 的字碼表，以及 edu.tw 的常用字表。:-)</p>
+    </p><p>
+    感謝 <nobr>perlbrew.pl 的 <a href="http://www.perlbrew.pl/stylesheets/application.css">樣式表</a></nobr>，
+         <nobr>richyli.com 的 <a href="http://www.richyli.com/name/">人名表</a></nobr>，
+         <br>
+         <nobr>openvanilla.org 的 <a href="http://openvanilla.googlecode.com/svn/trunk/Modules/SharedData/">字碼表</a></nobr>，以及
+         <nobr>edu.tw 的 <a href="http://www.edu.tw/mandr/download.aspx?download_sn=306&pages=2&site_content_sn=3364">常用字表</a>。</nobr>:-)</p>
 </footer>
 .
     return [200, ['Content-Type' => 'text/html; charset=utf-8', 'Content-Length' => length $body], [$body]]
