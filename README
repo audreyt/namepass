@@ -1,0 +1,15 @@
+中文姓名拆字式亂數密碼產生器
+============================
+
+Acknowledgements
+
+    感謝 perlbrew.pl 的樣式表，richyli.com 的人名表，openvanilla.org 的字碼表，以及 edu.tw 的常用字表。:-)
+
+CC0 1.0 Universal
+
+    To the extent possible under law, 唐鳳 has waived all copyright and
+    related or neighboring rights to namepass.
+
+    This work is published from Taiwan.
+
+    <http://creativecommons.org/publicdomain/zero/1.0>
