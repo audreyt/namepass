@@ -3,7 +3,7 @@ use 5.12.0;
 use utf8;
 use Encode;
 use List::Util 'shuffle';
-use Furl;
+use Hijk;
 use File::Slurp;
 use JSON;
 
@@ -22,12 +22,17 @@ sub getNextName {
     state @names;
     return shift(@names) if @names;
 
-    my $res = Furl->new->post(
-        'http://www.richyli.com/name/index.asp', [],
-        [name_count => 500, yourname => ' ', break => 3]
-    );
+    my $res = Hijk::request({
+        method       => "POST",
+        host         => "www.richyli.com",
+        port         => "80",
+        path         => "/name/index.asp",
+        head         => [ "Content-Type" => "application/x-www-form-urlencoded" ],
+        body         => "name_count=500&yourname=%20&break=3",
+    });
 
-    my $content = Encode::decode(big5 => $res->content);
+
+    my $content = Encode::decode(big5 => $res->{body});
     $content =~ s/.*<tr><td valign="top">\s*//s;
     $content =~ s/\s*<BR>＃.*//s;
     @names = split(/\s*<BR>\s*/, $content);

@@ -13,7 +13,7 @@ WriteMakefile(
       : ()),
     PL_FILES            => {},
     PREREQ_PM => {
-        'Furl'        => 0,
+        'Hijk'        => 0,
         'JSON'        => 0,
         'File::Slurp' => 0,
     },
